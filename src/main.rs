@@ -23,7 +23,8 @@ fn main() {
             std::io::stderr(),
             "Example: {} mandel.png 1000x750 -1.20,0.35 -1,0.20",
             args[0]
-        ).unwrap();
+        )
+        .unwrap();
         std::process::exit(1);
     }
 
