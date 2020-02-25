@@ -1,5 +1,8 @@
 ### Mandelbrot
 
+![](https://github.com/thebigredgeek/mandelbrot/workflows/ci/badge.svg)
+
+
 Given an output filename, image dimensions, upper left value, and lower right value, produces an image using the Mandelbrot algorithm.
 
 To run:
