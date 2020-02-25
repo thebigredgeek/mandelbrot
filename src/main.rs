@@ -7,24 +7,19 @@ use image::png::PNGEncoder;
 use image::ColorType;
 use num::Complex;
 use std::fs::File;
-use std::io::Write;
 use std::str::FromStr;
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
 
     if args.len() != 5 {
-        writeln!(
-            std::io::stderr(),
-            "Usage: mandelbrot FILE PIXELS UPPERLEFT LOWERRIGHT"
-        )
-        .unwrap();
-        writeln!(
-            std::io::stderr(),
+        eprintln!("Usage: mandelbrot FILE PIXELS UPPERLEFT LOWERRIGHT");
+
+        eprintln!(
             "Example: {} mandel.png 1000x750 -1.20,0.35 -1,0.20",
             args[0]
-        )
-        .unwrap();
+        );
+
         std::process::exit(1);
     }
 
@@ -35,8 +30,6 @@ fn main() {
     let lower_right = parse_complex(&args[4]).expect("error parsing lower right corner points");
 
     let mut pixels = vec![0; bounds.0 * bounds.1];
-
-    // render(&mut pixels, bounds, upper_left, lower_right);
 
     let threads = num_cpus::get();
 
